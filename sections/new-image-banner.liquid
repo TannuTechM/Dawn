@@ -15,10 +15,57 @@
 
   {% for block in section.blocks %}
     <div class="banner-block">
-      <p>{{ block.settings.block_text }}</p>
+      {% if block.settings.block_type == 'image' and block.settings.block_image %}
+        <div class="block-image" style="background-image: url('{{ block.settings.block_image | file_url }}');">
+        </div>
+      {% elsif block.settings.block_type == 'video' and block.settings.block_video %}
+        <div class="block-video">
+          <video controls>
+            <source src="{{ block.settings.block_video | file_url }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      {% endif %}
+      <div class="block-content">
+        <h2>{{ block.settings.block_heading }}</h2>
+        <p>{{ block.settings.block_text }}</p>
+      </div>
     </div>
   {% endfor %}
 </div>
+
+<style>
+  .new-image-banner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .banner-block {
+    flex: 1 1 calc(50% - 20px);
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+  .block-image {
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    margin-bottom: 10px;
+  }
+  .block-video video {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  .block-content h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  .block-content p {
+    font-size: 1rem;
+  }
+</style>
+
 {% schema %}
 {
     "name": "New Image Banner",
@@ -47,7 +94,33 @@
       "name": "Banner Block",
       "settings": [
         {
+          "type": "select",
+          "id": "block_type",
+          "label": "Block Type",
+          "options": [
+            { "value": "image", "label": "Image" },
+            { "value": "video", "label": "Video" }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "block_image",
+          "label": "Block Image"
+        },
+        {
+          "type": "file_picker",
+          "id": "block_video",
+          "label": "Block Video"
+        },
+        {
           "type": "text",
+          "id": "block_heading",
+          "label": "Block Heading",
+          "default": "Block Heading Here"
+        },
+        {
+          "type": "textarea",
           "id": "block_text",
           "label": "Block Text",
           "default": "Block text here."
