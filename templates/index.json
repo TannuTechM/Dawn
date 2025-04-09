@@ -1,5 +1,22 @@
 {
   "sections": {
+    "new_image_banner": {
+      "type": "new-image-banner",
+      "settings": {
+        "banner_image": "shopify://shop_images/example.jpg",
+        "banner_heading": "Welcome to Our Store",
+        "banner_subtext": "Discover our latest collections and offers."
+      },
+      "blocks": {
+        "block1": {
+          "type": "banner_block",
+          "settings": {
+            "block_text": "Shop Now"
+          }
+        }
+      },
+      "block_order": ["block1"]
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -200,6 +217,7 @@
     }
   },
   "order": [
+    "new_image_banner",
     "image_banner",
     "rich_text",
     "featured_collection",
