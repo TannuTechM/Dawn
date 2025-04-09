@@ -91,7 +91,7 @@
    "blocks": [
     {
       "type": "banner_block",
-      "name": "Banner Block",
+      "name": "Block 1",
       "settings": [
         {
           "type": "select",
@@ -117,13 +117,51 @@
           "type": "text",
           "id": "block_heading",
           "label": "Block Heading",
-          "default": "Block Heading Here"
+          "default": "Block 1 Heading"
         },
         {
           "type": "textarea",
           "id": "block_text",
           "label": "Block Text",
-          "default": "Block text here."
+          "default": "Block 1 text here."
+        }
+      ]
+    },
+    {
+      "type": "banner_block",
+      "name": "Block 2",
+      "settings": [
+        {
+          "type": "select",
+          "id": "block_type",
+          "label": "Block Type",
+          "options": [
+            { "value": "image", "label": "Image" },
+            { "value": "video", "label": "Video" }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "block_image",
+          "label": "Block Image"
+        },
+        {
+          "type": "file_picker",
+          "id": "block_video",
+          "label": "Block Video"
+        },
+        {
+          "type": "text",
+          "id": "block_heading",
+          "label": "Block Heading",
+          "default": "Block 2 Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "block_text",
+          "label": "Block Text",
+          "default": "Block 2 text here."
         }
       ]
     }
