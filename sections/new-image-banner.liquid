@@ -1,0 +1,64 @@
+<!-- filepath: c:\Users\TS001067320\Desktop\shopify\dawn\sections\new-image-banner.liquid -->
+{% stylesheet %}
+<link rel="stylesheet" href="{{ 'new-image-banner.css' | asset_url }}">
+{% endstylesheet %}
+<div class="new-image-banner">
+  {% if section.settings.banner_image %}
+    <div class="banner-image" style="background-image: url('{{ section.settings.banner_image | file_url }}');">
+      <div class="banner-content">
+        <h1>{{ section.settings.banner_heading }}</h1>
+        <p>{{ section.settings.banner_subtext }}</p>
+      </div>
+    </div>
+  {% endif %}
+
+  {% for block in section.blocks %}
+    <div class="banner-block">
+      <p>{{ block.settings.block_text }}</p>
+    </div>
+  {% endfor %}
+</div>
+{% schema %}
+{
+    "name": "New Image Banner",
+    "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Image"
+    },
+     {
+      "type": "text",
+      "id": "banner_heading",
+      "label": "Heading Text",
+      "default": "Your Heading Here"
+    },
+    {
+      "type": "textarea",
+      "id": "banner_subtext",
+      "label": "Subtext",
+      "default": "Your subtext here."
+    }
+  ],
+   "blocks": [
+    {
+      "type": "banner_block",
+      "name": "Banner Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "block_text",
+          "label": "Block Text",
+          "default": "Block text here."
+        }
+      ]
+    }
+   ],
+   "presets": [
+    {
+      "name": "New Image Banner",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
