@@ -1,7 +1,7 @@
 <!-- filepath: c:\Users\TS001067320\Desktop\shopify\dawn\sections\new-image-banner.liquid -->
-{% stylesheet %}
+
 <link rel="stylesheet" href="{{ 'new-image-banner.css' | asset_url }}">
-{% endstylesheet %}
+
 <div class="new-image-banner">
   {% if section.settings.banner_image %}
     <div class="banner-image" style="background-image: url('{{ section.settings.banner_image | file_url }}');">
@@ -68,14 +68,14 @@
 
 {% schema %}
 {
-    "name": "New Image Banner",
-    "settings": [
+  "name": "New Image Banner",
+  "settings": [
     {
       "type": "image_picker",
       "id": "banner_image",
       "label": "Banner Image"
     },
-     {
+    {
       "type": "text",
       "id": "banner_heading",
       "label": "Heading Text",
@@ -88,9 +88,9 @@
       "default": "Your subtext here."
     }
   ],
-   "blocks": [
+  "blocks": [
     {
-      "type": "banner_block",
+      "type": "banner_block_1",
       "name": "Block 1",
       "settings": [
         {
@@ -108,11 +108,7 @@
           "id": "block_image",
           "label": "Block Image"
         },
-        {
-          "type": "file_picker",
-          "id": "block_video",
-          "label": "Block Video"
-        },
+        
         {
           "type": "text",
           "id": "block_heading",
@@ -128,7 +124,7 @@
       ]
     },
     {
-      "type": "banner_block",
+      "type": "banner_block_2",
       "name": "Block 2",
       "settings": [
         {
@@ -146,11 +142,7 @@
           "id": "block_image",
           "label": "Block Image"
         },
-        {
-          "type": "file_picker",
-          "id": "block_video",
-          "label": "Block Video"
-        },
+        
         {
           "type": "text",
           "id": "block_heading",
@@ -165,8 +157,8 @@
         }
       ]
     }
-   ],
-   "presets": [
+  ],
+  "presets": [
     {
       "name": "New Image Banner",
       "category": "Custom"
